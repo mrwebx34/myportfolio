@@ -6,14 +6,16 @@
     <title>Ranjan's Portfolio</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -45,895 +47,460 @@
   ======================================================== -->
   </head>
 
-  <body class="index-page">
-    <header id="header" class="header dark-background d-flex flex-column">
-      <i class="header-toggle d-xl-none bi bi-list"></i>
-
-      <div class="profile-img">
-        <img
-          src="assets/img/my-profile-img.jpg"
-          alt=""
-          class="img-fluid rounded-circle"
-        />
-      </div>
-
-      <a
-        href="index.html"
-        class="logo d-flex align-items-center justify-content-center"
-      >
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Ranjan Rath</h1>
-      </a>
-
-      <div class="social-links text-center">
-        <a href="https://x.com/Ranjanwebdev" class="twitter" target="_blank"
-          ><i class="bi bi-twitter-x"></i
-        ></a>
-
-        <a
-          href="hhttps://www.instagram.com/the_websorcerer/"
-          class="instagram"
-          target=""
-          ><i class="bi bi-instagram"></i
-        ></a>
-
-        <a
-          href="https://www.linkedin.com/in/ranjan-rath9/"
-          class="linkedin"
-          target="_blank"
-          ><i class="bi bi-linkedin"></i
-        ></a>
-      </div>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li>
-            <a href="#hero" class="active"
-              ><i class="bi bi-house navicon"></i>Home</a
-            >
-          </li>
-          <li>
-            <a href="#about"><i class="bi bi-person navicon"></i> About</a>
-          </li>
-
-          <li>
-            <a href="#portfolio"
-              ><i class="bi bi-images navicon"></i> Portfolio</a
-            >
-          </li>
-          <li>
-            <a href="#services"
-              ><i class="bi bi-hdd-stack navicon"></i> Services</a
-            >
-          </li>
-
-          <li>
-            <a href="#contact"
-              ><i class="bi bi-envelope navicon"></i> Contact</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <main class="main">
-      <!-- Hero Section -->
-      <section id="hero" class="hero section dark-background">
-        <div class="container">
-          <h2>Ranjan Rath</h2>
-          <p>
-            I'm
-            <span
-              class="typed"
-              data-typed-items="WordPress Developer, Freelancer, Ecommerce Developer, Frontend Developer"
-            ></span>
-          </p>
-        </div>
-        <!-- Floating Blobs -->
-        <div class="floating-blob blob-1"></div>
-        <div class="floating-blob blob-2"></div>
-      </section>
-
-      <!-- /Hero Section -->
-
-      <!-- About Section -->
-      <section id="about" class="about section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>About</h2>
-          <p>
-            Passionate UI & Web Developer with expertise in WordPress (frontend
-            & backend) and React. Experienced in building dynamic, responsive
-            websites and user-friendly interfaces. Dedicated to delivering
-            high-quality web solutions with clean code and modern design
-            principles.
-          </p>
-        </div>
-        <!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="row gy-4 justify-content-center">
-            <div class="col-lg-4">
-              <img
-                src="assets/img/my-profile-img.jpg"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
-            <div class="col-lg-8 content">
-              <h2>UI &amp; Web Developer.</h2>
-              <p class="fst-italic py-3">
-                Experienced in building clean, responsive, and interactive user
-                interfaces using modern web technologies. Passionate about
-                front-end development and Wordpress Developement, ensuring
-                smooth performance and visually appealing designs.
-              </p>
-              <div class="row d-flex align-items-center">
-                <div class="col-lg-6">
-                  <ul>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Website:</strong>
-                      <span>https://ranjanrath.netlify.app</span>
-                    </li>
-
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>City:</strong> <span>Bhubaneswar, India</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Email:</strong>
-                      <span>ranjankumarrath7@gmail.com</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Freelance:</strong> <span>Available</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- /About Section -->
-
-      <!-- Stats Section -->
-
-      <!-- Skills Section -->
-      <section id="skills" class="skills section light-background">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Skills</h2>
-          <p>
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
-          </p>
-        </div>
-        <!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="row skills-content skills-animation">
-            <div class="col-lg-6">
-              <div class="progress">
-                <span class="skill"
-                  ><span>HTML</span> <i class="val">100%</i></span
-                >
-                <div class="progress-bar-wrap">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-valuenow="100"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <!-- End Skills Item -->
-
-              <div class="progress">
-                <span class="skill"
-                  ><span>CSS</span> <i class="val">90%</i></span
-                >
-                <div class="progress-bar-wrap">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-valuenow="90"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <!-- End Skills Item -->
-
-              <div class="progress">
-                <span class="skill"
-                  ><span>JavaScript</span> <i class="val">75%</i></span
-                >
-                <div class="progress-bar-wrap">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-valuenow="75"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <!-- End Skills Item -->
-            </div>
-
-            <div class="col-lg-6">
-              <div class="progress">
-                <span class="skill"
-                  ><span>PHP</span> <i class="val">80%</i></span
-                >
-                <div class="progress-bar-wrap">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-valuenow="80"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <!-- End Skills Item -->
-
-              <div class="progress">
-                <span class="skill"
-                  ><span>WordPress/Ecommerce</span> <i class="val">90%</i></span
-                >
-                <div class="progress-bar-wrap">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-valuenow="90"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <!-- End Skills Item -->
-
-              <div class="progress">
-                <span class="skill"
-                  ><span>React</span> <i class="val">55%</i></span
-                >
-                <div class="progress-bar-wrap">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-valuenow="55"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-              <!-- End Skills Item -->
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- /Skills Section -->
-
-      <!-- Resume Section -->
-
-      <!-- Portfolio Section -->
-      <section id="portfolio" class="portfolio section light-background">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Portfolio</h2>
-          <p>
-            Discover a collection of my work, crafted with precision and
-            creativity. Each project showcases my expertise and dedication to
-            delivering exceptional results.
-          </p>
-        </div>
-        <!-- End Section Title -->
-
-        <div class="container">
-          <div
-            class="isotope-layout"
-            data-default-filter="*"
-            data-layout="masonry"
-            data-sort="original-order"
-          >
-            <!-- End Portfolio Filters -->
-
-            <div
-              class="row gy-4 isotope-container"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/Assemble.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                    
-                    <a
-                      href="assets/img/portfolio/Assemble.png"
-                      title="App 1"
-                      data-gallery="portfolio-gallery-app"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                    
-                  </div>
-                </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/fashion.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                   
-                    <a
-                      href="assets/img/portfolio/fashion.png"
-                      title="Product 1"
-                      data-gallery="portfolio-gallery-product"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                   
-                  </div>
-                </div>
-              </div>
-              
-              <div
-                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product"
-              >
-                <div class="portfolio-content h-100">
-                  <img
-                    src="assets/img/portfolio/college.png"
-                    class="img-fluid"
-                    alt=""
-                  />
-                  <div class="portfolio-info">
-                   
-                    <a
-                      href="assets/img/portfolio/college.png"
-                      title="Product 1"
-                      data-gallery="portfolio-gallery-product"
-                      class="glightbox preview-link"
-                      ><i class="bi bi-zoom-in"></i
-                    ></a>
-                   
-                  </div>
-                </div>
-              </div>
-              <!-- End Portfolio Item -->
-
-            
-              <!-- End Portfolio Item -->
-
-              <!-- End Portfolio Item -->
-            </div>
-            <!-- End Portfolio Container -->
-          </div>
-        </div>
-      </section>
-      <!-- /Portfolio Section -->
-
-      <!-- Services Section -->
-      <section id="services" class="services section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Services</h2>
-          <p>
-            I specialize in web development, eCommerce solutions, and modern
-            front-end technologies. With expertise in HTML, CSS, Bootstrap,
-            WooCommerce, Shopify, and React (Beginner), I create responsive and
-            user-friendly websites that meet business needs.
-          </p>
-        </div>
-        <!-- End Section Title -->
-
-        <div class="container">
-          <div class="row gy-4">
-            <div
-              class="col-lg-4 col-md-6 service-item d-flex"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div class="icon flex-shrink-0">
-                <i class="bi bi-code-slash"></i>
-              </div>
-              <div>
-                <h4 class="title">
-                  <a href="service-details.html" class="stretched-link"
-                    >Web Development</a
-                  >
-                </h4>
-                <p class="description">
-                  Building responsive and dynamic websites using HTML, CSS,
-                  Bootstrap, and JavaScript for an enhanced user experience.
-                </p>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div
-              class="col-lg-4 col-md-6 service-item d-flex"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="icon flex-shrink-0"><i class="bi bi-cart"></i></div>
-              <div>
-                <h4 class="title">
-                  <a href="service-details.html" class="stretched-link"
-                    >WooCommerce Development</a
-                  >
-                </h4>
-                <p class="description">
-                  Creating customized WooCommerce stores with seamless product
-                  management and payment integrations.
-                </p>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div
-              class="col-lg-4 col-md-6 service-item d-flex"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <div class="icon flex-shrink-0"><i class="bi bi-shop"></i></div>
-              <div>
-                <h4 class="title">
-                  <a href="service-details.html" class="stretched-link"
-                    >Shopify Store Setup</a
-                  >
-                </h4>
-                <p class="description">
-                  Designing and optimizing Shopify stores with user-friendly
-                  navigation and conversion-focused layouts.
-                </p>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div
-              class="col-lg-4 col-md-6 service-item d-flex"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              <div class="icon flex-shrink-0">
-                <i class="bi bi-bootstrap"></i>
-              </div>
-              <div>
-                <h4 class="title">
-                  <a href="service-details.html" class="stretched-link"
-                    >Bootstrap Design</a
-                  >
-                </h4>
-                <p class="description">
-                  Developing modern and responsive web pages using Bootstrap for
-                  mobile-friendly and visually appealing designs.
-                </p>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div
-              class="col-lg-4 col-md-6 service-item d-flex"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <div class="icon flex-shrink-0">
-                <i class="bi bi-file-earmark-code"></i>
-              </div>
-              <div>
-                <h4 class="title">
-                  <a href="service-details.html" class="stretched-link"
-                    >React Development (Beginner)</a
-                  >
-                </h4>
-                <p class="description">
-                  Building interactive UI components using React.js for scalable
-                  and efficient web applications.
-                </p>
-              </div>
-            </div>
-            <!-- End Service Item -->
-
-            <div
-              class="col-lg-4 col-md-6 service-item d-flex"
-              data-aos="fade-up"
-              data-aos-delay="600"
-            >
-              <div class="icon flex-shrink-0"><i class="bi bi-gear"></i></div>
-              <div>
-                <h4 class="title">
-                  <a href="service-details.html" class="stretched-link"
-                    >Website Customization</a
-                  >
-                </h4>
-                <p class="description">
-                  Tailoring website layouts, themes, and functionalities to meet
-                  unique business requirements.
-                </p>
-              </div>
-            </div>
-            <!-- End Service Item -->
-          </div>
-        </div>
-      </section>
-      <!-- /Services Section -->
-
-      <!-- Testimonials Section -->
-      <section id="testimonials" class="testimonials section light-background">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Testimonials</h2>
-          <p>
-            Hear from those who have experienced my work firsthand. Their
-            feedback reflects my commitment to excellence and client
-            satisfaction.
-          </p>
-        </div>
-        <!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper init-swiper">
-            <script type="application/json" class="swiper-config">
-              {
-                "loop": true,
-                "speed": 600,
-                "autoplay": {
-                  "delay": 5000
-                },
-                "slidesPerView": "auto",
-                "pagination": {
-                  "el": ".swiper-pagination",
-                  "type": "bullets",
-                  "clickable": true
-                },
-                "breakpoints": {
-                  "320": {
-                    "slidesPerView": 1,
-                    "spaceBetween": 40
-                  },
-                  "1200": {
-                    "slidesPerView": 3,
-                    "spaceBetween": 1
-                  }
-                }
-              }
-            </script>
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Working with Ranjan was a fantastic experience. He
-                      understood our vision and delivered a beautifully designed
-                      WordPress website that exceeded our expectations. His
-                      attention to detail and technical expertise made the
-                      entire process smooth and stress-free. Highly
-                      recommended!</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                  <img
-                    src="assets/img/testimonials/testimonials-1.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Ranjan is an incredibly skilled developer who transformed
-                      our outdated website into a modern, responsive, and
-                      user-friendly platform. His knowledge of WordPress, design
-                      aesthetics, and functionality is outstanding. We couldn’t
-                      be happier with the results!</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                  <img
-                    src="assets/img/testimonials/testimonials-2.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Sara Wilsson</h3>
-                  <h4>Business Owner</h4>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Ranjan created a stunning website for my brand, keeping
-                      both design and performance in mind. His expertise in
-                      WordPress development helped us achieve a fast, secure,
-                      and visually appealing site. I appreciate his patience,
-                      creativity, and professionalism!</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                  <img
-                    src="assets/img/testimonials/testimonials-3.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >I needed a custom WordPress website, and Ranjan delivered
-                      beyond my expectations. From seamless navigation to clean
-                      design and optimized performance, every aspect of the site
-                      was handled with care. His support and guidance throughout
-                      the process were invaluable!</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                  <img
-                    src="assets/img/testimonials/testimonials-4.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Ranjan not only built a great website for us but also
-                      provided excellent post-launch support. His ability to
-                      troubleshoot, customize, and optimize WordPress sites is
-                      commendable. If you’re looking for a reliable web
-                      designer, Ranjan is the person to go to!</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                  <img
-                    src="assets/img/testimonials/testimonials-5.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </section>
-      <!-- /Testimonials Section -->
-
-      <!-- Contact Section -->
-      <section id="contact" class="contact section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Contact</h2>
-          <p>
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
-          </p>
-        </div>
-        <!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="row gy-4">
-            <div class="col-lg-5">
-              <div class="info-wrap">
-                <div
-                  class="info-item d-flex"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                >
-                  <i class="bi bi-geo-alt flex-shrink-0"></i>
-                  <div>
-                    <h3>Address</h3>
-                    <p>Bhubaneswar,Odisha</p>
-                  </div>
-                </div>
-                <!-- End Info Item -->
-
-                <!-- End Info Item -->
-
-                <div
-                  class="info-item d-flex"
-                  data-aos="fade-up"
-                  data-aos-delay="400"
-                >
-                  <i class="bi bi-envelope flex-shrink-0"></i>
-                  <div>
-                    <h3>Email Us</h3>
-                    <p>ranjankumarrath7@gmail.com</p>
-                  </div>
-                </div>
-                <!-- End Info Item -->
-
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29926.09926598631!2d85.80364215536558!3d20.351431629525575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a190912b69339ab%3A0xa11e7186a04f1474!2sPatia%2C%20Bhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1741263542383!5m2!1sen!2sin"
-                  width="100%"
-                  height="300"
-                  style="border: 0"
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-            </div>
-
-            <div class="col-lg-7">
-              <form
-                action="forms/contact.php"
-                method="post"
-                class="php-email-form"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <div class="row gy-4">
-                  <div class="col-md-6">
-                    <label for="name-field" class="pb-2">Your Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      id="name-field"
-                      class="form-control"
-                      required=""
-                    />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="email-field" class="pb-2">Your Email</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      name="email"
-                      id="email-field"
-                      required=""
-                    />
-                  </div>
-
-                  <div class="col-md-12">
-                    <label for="subject-field" class="pb-2">Subject</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="subject"
-                      id="subject-field"
-                      required=""
-                    />
-                  </div>
-
-                  <div class="col-md-12">
-                    <label for="message-field" class="pb-2">Message</label>
-                    <textarea
-                      class="form-control"
-                      name="message"
-                      rows="10"
-                      id="message-field"
-                      required=""
-                    ></textarea>
-                  </div>
-
-                  <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">
-                      Your message has been sent. Thank you!
-                    </div>
-
-                    <button type="submit">Send Message</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <!-- End Contact Form -->
-          </div>
-        </div>
-      </section>
-      <!-- /Contact Section -->
-    </main>
-
-    <footer id="footer" class="footer position-relative light-background">
+  <body>
+    <!-- Floating Navigation -->
+    <nav class="floating-nav">
       <div class="container">
-        <div class="copyright text-center">
-          <p>
-            © <span>Copyright</span>
-            <strong class="px-1 sitename">Ranjan</strong>
-            <span>All Rights Reserved</span>
-          </p>
+        <div class="nav-content">
+          <a href="#" class="logo">RR</a>
+          <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <button class="menu-toggle">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text" data-aos="fade-up">
+            <h1 class="gradient-text">Hi, I'm Ranjan Rath</h1>
+            <h2>Web Developer & Designer</h2>
+            <p>Creating beautiful, functional websites with modern technologies</p>
+            <div class="hero-buttons">
+              <a href="#work" class="btn btn-primary">View My Work</a>
+              <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+          </div>
+          <div class="hero-image" data-aos="fade-left">
+            <div class="image-container">
+              <img src="assets/img/my-profile-img.jpg" alt="Ranjan Rath" />
+              <div class="floating-elements">
+                <span class="element-1"></span>
+                <span class="element-2"></span>
+                <span class="element-3"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>About Me</h2>
+          <p>Get to know me better</p>
+        </div>
+        <div class="about-content">
+          <div class="about-image" data-aos="fade-right">
+            <img src="assets/img/my-profile-img.jpg" alt="About Me" />
+          </div>
+          <div class="about-text" data-aos="fade-left">
+            <h3>I'm a passionate web developer based in Bhubaneswar, India</h3>
+            <p>
+              With over 5 years of experience in web development, I specialize in creating
+              modern, responsive websites and web applications. My expertise includes
+              WordPress development, frontend technologies, and UI/UX design.
+            </p>
+            <div class="about-details">
+              <div class="detail-item">
+                <span class="label">Name:</span>
+                <span class="value">Ranjan Rath</span>
+              </div>
+              <div class="detail-item">
+                <span class="label">Email:</span>
+                <span class="value">ranjankumarrath7@gmail.com</span>
+              </div>
+              <div class="detail-item">
+                <span class="label">Location:</span>
+                <span class="value">Bhubaneswar, India</span>
+              </div>
+              <div class="detail-item">
+                <span class="label">Freelance:</span>
+                <span class="value">Available</span>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="https://x.com/Ranjanwebdev" target="_blank"><i class="bi bi-twitter-x"></i></a>
+              <a href="https://www.instagram.com/the_websorcerer/" target="_blank"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/ranjan-rath9/" target="_blank"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>My Skills</h2>
+          <p>What I'm good at</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="skill-icon">
+              <i class="bi bi-code-slash"></i>
+            </div>
+            <h3>Frontend Development</h3>
+            <p>HTML, CSS, JavaScript, React</p>
+            <div class="skill-progress">
+              <div class="progress-bar" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="skill-icon">
+              <i class="bi bi-wordpress"></i>
+            </div>
+            <h3>WordPress</h3>
+            <p>Theme Development, Plugin Development</p>
+            <div class="skill-progress">
+              <div class="progress-bar" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="skill-icon">
+              <i class="bi bi-palette"></i>
+            </div>
+            <h3>UI/UX Design</h3>
+            <p>Figma, Adobe XD, Photoshop</p>
+            <div class="skill-progress">
+              <div class="progress-bar" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="skill-icon">
+              <i class="bi bi-gear"></i>
+            </div>
+            <h3>Backend Development</h3>
+            <p>PHP, MySQL, Node.js</p>
+            <div class="skill-progress">
+              <div class="progress-bar" style="width: 80%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="work">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>My Work</h2>
+          <p>Check out some of my recent projects</p>
+        </div>
+        
+        <div class="work-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web Development</button>
+          <button class="filter-btn" data-filter="wordpress">WordPress</button>
+          <button class="filter-btn" data-filter="design">UI/UX Design</button>
+        </div>
+
+        <div class="work-grid">
+          <!-- Project 1 -->
+          <div class="work-item" data-category="web">
+            <div class="work-image">
+              <img src="assets/img/portfolio/fashion.png" alt="Fashion Website">
+              <div class="work-overlay">
+                <h3>Fashion Website</h3>
+                <p>A modern e-commerce platform for fashion products</p>
+                <a href="assets/img/portfolio/fashion.png" class="work-link" data-fancybox="gallery" data-caption="Fashion Website - Full Project View">View Project</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="work-item" data-category="web">
+            <div class="work-image">
+              <img src="assets/img/portfolio/engima studin.png" alt="Enigma Studio">
+              <div class="work-overlay">
+                <h3>Enigma Studio</h3>
+                <p>Creative studio website with modern design</p>
+                <a href="assets/img/portfolio/engima studin.png" class="work-link" data-fancybox="gallery" data-caption="Enigma Studio - Full Project View">View Project</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="work-item" data-category="web">
+            <div class="work-image">
+              <img src="assets/img/portfolio/college.png" alt="College Website">
+              <div class="work-overlay">
+                <h3>College Website</h3>
+                <p>Educational institution website with modern features</p>
+                <a href="assets/img/portfolio/college.png" class="work-link" data-fancybox="gallery" data-caption="College Website - Full Project View">View Project</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="work-item" data-category="web">
+            <div class="work-image">
+              <img src="assets/img/portfolio/Assemble.png" alt="Assemble Project">
+              <div class="work-overlay">
+                <h3>Assemble Project</h3>
+                <p>Collaborative platform with modern design</p>
+                <a href="assets/img/portfolio/Assemble.png" class="work-link" data-fancybox="gallery" data-caption="Assemble Project - Full Project View">View Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+   
+
+        <section id="testimonials" class="testimonials">
+          <div class="container">
+            <div class="section-header" data-aos="fade-up">
+              <h2>Testimonials</h2>
+              <p>What my clients say about my work</p>
+            </div>
+        
+            <div class="testimonials-slider swiper">
+              <div class="swiper-wrapper">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-item swiper-slide">
+                  <div class="testimonial-img">
+                    <img src="assets/img/testimonials/testimonials-1.jpg" alt="John Smith">
+                  </div>
+                  <h3>John Smith</h3>
+                  <h4>CEO, Tech Company</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Ranjan delivered an outstanding e-commerce website that exceeded our expectations. His attention to detail and technical expertise were impressive.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+        
+                <!-- Testimonial 2 -->
+                <div class="testimonial-item swiper-slide">
+                  <div class="testimonial-img">
+                    <img src="assets/img/testimonials/testimonials-2.jpg" alt="Sarah Johnson">
+                  </div>
+                  <h3>Sarah Johnson</h3>
+                  <h4>Marketing Director</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Working with Ranjan was a pleasure. He created a beautiful website that perfectly represents our brand and has helped us grow our online presence.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+        
+                <!-- Testimonial 3 -->
+                <div class="testimonial-item swiper-slide">
+                  <div class="testimonial-img">
+                    <img src="assets/img/testimonials/testimonials-3.jpg" alt="Michael Brown">
+                  </div>
+                  <h3>Michael Brown</h3>
+                  <h4>Startup Founder</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Ranjan's UI/UX design skills are exceptional. He created a stunning website that has helped us stand out in a competitive market.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+        
+                <!-- Testimonial 4 (Reusing testimonial-1.jpg) -->
+                <div class="testimonial-item swiper-slide">
+                  <div class="testimonial-img">
+                    <img src="assets/img/testimonials/testimonials-1.jpg" alt="Emily Wilson">
+                  </div>
+                  <h3>Emily Wilson</h3>
+                  <h4>E-commerce Manager</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    The website Ranjan built increased our conversion rate by 40%. His technical expertise and marketing understanding are top-notch.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+        
+                <!-- Testimonial 5 (Reusing testimonial-2.jpg) -->
+                <div class="testimonial-item swiper-slide">
+                  <div class="testimonial-img">
+                    <img src="assets/img/testimonials/testimonials-2.jpg" alt="David Miller">
+                  </div>
+                  <h3>David Miller</h3>
+                  <h4>CTO, SaaS Platform</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Ranjan's backend integrations while maintaining clean frontend code is remarkable. Highly recommended!
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+        
+                <!-- Testimonial 6 (Reusing testimonial-3.jpg) -->
+                <div class="testimonial-item swiper-slide">
+                  <div class="testimonial-img">
+                    <img src="assets/img/testimonials/testimonials-3.jpg" alt="Sophia Chen">
+                  </div>
+                  <h3>Sophia Chen</h3>
+                  <h4>Creative Director</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Ranjan perfectly balanced our creative vision with technical best practices to deliver outstanding results.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Get in Touch</h2>
+          <p>Let's work together</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="info-item">
+              <i class="bi bi-geo-alt"></i>
+              <div>
+                <h3>Location</h3>
+                <p>Bhubaneswar, India</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="bi bi-envelope"></i>
+              <div>
+                <h3>Email</h3>
+                <p>ranjankumarrath7@gmail.com</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="bi bi-phone"></i>
+              <div>
+                <h3>Call</h3>
+                <p>+91 1234567890</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form action="forms/contact.php" method="post" class="php-email-form">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="Your Email" required />
+              </div>
+              <div class="form-group">
+                <input type="text" name="subject" class="form-control" placeholder="Subject" required />
+              </div>
+              <div class="form-group">
+                <textarea name="message" class="form-control" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <a href="#" class="logo">RR</a>
+            <p>Creating digital experiences that matter</p>
+          </div>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#work">Work</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-social">
+            <a href="https://x.com/Ranjanwebdev" target="_blank"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.instagram.com/the_websorcerer/" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/ranjan-rath9/" target="_blank"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Ranjan Rath. All rights reserved.</p>
         </div>
       </div>
     </footer>
-    <!-- Calendly badge widget begin -->
-    <link
-      href="https://assets.calendly.com/assets/external/widget.css"
-      rel="stylesheet"
-    />
-    <script
-      src="https://assets.calendly.com/assets/external/widget.js"
-      type="text/javascript"
-      async
-    ></script>
-    <script type="text/javascript">
-      window.onload = function () {
-        Calendly.initBadgeWidget({
-          url: "https://calendly.com/ranjankumarrath7",
-          text: "Book A Call",
-          color: "#0069ff",
-          textColor: "#ffffff",
-          branding: false,
-        });
-      };
-    </script>
-    <!-- Calendly badge widget end -->
-    <!-- Scroll Top -->
-    <a
-      href="#"
-      id="scroll-top"
-      class="scroll-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Add Fancybox CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
   </body>
 </html>
