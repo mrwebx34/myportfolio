@@ -217,6 +217,21 @@ h6 {
   .header {
     left: -100%;
   }
+  .nav-links.active {
+    display: block;
+    flex-direction: column;
+    display: flex;
+    position: absolute;
+    top: 70px;
+    background: ;
+    width: 100%;
+    background:
+#121a2d;
+    padding:
+30px;
+    left: 0right: 0;
+    left: 0;
+  }
 }
 
 .header.header-show {
