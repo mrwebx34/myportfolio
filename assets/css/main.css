@@ -1158,7 +1158,7 @@ section,
 .contact .info-item i {
   font-size: 20px;
   color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  /* background: color-mix(in srgb, var(--accent-color), transparent 92%); */
   width: 44px;
   height: 44px;
   display: flex;
@@ -1167,6 +1167,7 @@ section,
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
   margin-right: 15px;
+  box-shadow: 0 0 12px #121a2d;
 }
 
 .contact .info-item h3 {
@@ -1183,7 +1184,7 @@ section,
 }
 
 .contact .info-item:hover i {
-  background: var(--accent-color);
+  /* background: var(--accent-color); */
   color: var(--contrast-color);
 }
 
@@ -3550,7 +3551,7 @@ section,
 .contact .info-item i {
   font-size: 20px;
   color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  /* background: color-mix(in srgb, var(--accent-color), transparent 92%); */
   width: 44px;
   height: 44px;
   display: flex;
@@ -3575,7 +3576,7 @@ section,
 }
 
 .contact .info-item:hover i {
-  background: var(--accent-color);
+  /* background: var(--accent-color); */
   color: var(--contrast-color);
 }
 
