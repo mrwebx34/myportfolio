@@ -1,0 +1,15 @@
+{
+    "name": "ranjan-portfolio-visitor-tracker",
+    "version": "1.0.0",
+    "description": "Visitor analytics for Ranjan's portfolio website",
+    "main": "index.html",
+    "scripts": {
+      "dev": "netlify dev"
+    },
+    "dependencies": {
+      "@octokit/rest": "^18.12.0"
+    },
+    "devDependencies": {
+      "netlify-cli": "^12.0.0"
+    }
+  }
