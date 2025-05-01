@@ -644,6 +644,191 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/visitor-analytic.js" defer></script>
+    <!-- Add this right before the closing </body> tag -->
+<script>
+  // Execute after a short delay to ensure page is fully loaded
+  setTimeout(function() {
+    try {
+      // Collect basic visitor data
+      var visitorData = {
+        timestamp: new Date().toISOString(),
+        page: window.location.pathname,
+        referrer: document.referrer || 'direct',
+        userAgent: navigator.userAgent,
+        screenSize: window.screen.width + 'x' + window.screen.height,
+        language: navigator.language,
+        cookies: document.cookie || 'no_cookies',
+        sessionId: getOrCreateSessionId()
+      };
+      
+      // Try multiple IP services in sequence for better reliability
+      getVisitorIP(function(ip) {
+        visitorData.ipAddress = ip || 'unknown';
+        sendToGoogleForm(visitorData);
+      });
+    } catch (error) {
+      // Silent error handling
+    }
+  }, 1000);
+  
+  // Try multiple services to get IP address
+  function getVisitorIP(callback) {
+    // Try first service (ipify)
+    var ipifyRequest = new XMLHttpRequest();
+    ipifyRequest.open('GET', 'https://api.ipify.org?format=json', true);
+    ipifyRequest.timeout = 3000; // 3-second timeout
+    
+    ipifyRequest.onload = function() {
+      if (this.status >= 200 && this.status < 400) {
+        try {
+          var data = JSON.parse(this.response);
+          if (data.ip) {
+            callback(data.ip);
+            return;
+          }
+        } catch (e) {}
+      }
+      // If ipify fails, try second service
+      tryBackupService(callback);
+    };
+    
+    ipifyRequest.onerror = function() {
+      tryBackupService(callback);
+    };
+    
+    ipifyRequest.ontimeout = function() {
+      tryBackupService(callback);
+    };
+    
+    try {
+      ipifyRequest.send();
+    } catch (e) {
+      tryBackupService(callback);
+    }
+  }
+  
+  // Backup IP detection service
+  function tryBackupService(callback) {
+    // Try a different service as backup
+    var backupRequest = new XMLHttpRequest();
+    backupRequest.open('GET', 'https://ipinfo.io/json', true);
+    backupRequest.timeout = 3000; // 3-second timeout
+    
+    backupRequest.onload = function() {
+      if (this.status >= 200 && this.status < 400) {
+        try {
+          var data = JSON.parse(this.response);
+          if (data.ip) {
+            callback(data.ip);
+            return;
+          }
+        } catch (e) {}
+      }
+      // If both services fail, use fallback method
+      useGeoPlugin(callback);
+    };
+    
+    backupRequest.onerror = function() {
+      useGeoPlugin(callback);
+    };
+    
+    backupRequest.ontimeout = function() {
+      useGeoPlugin(callback);
+    };
+    
+    try {
+      backupRequest.send();
+    } catch (e) {
+      // Last resort - give up and return unknown
+      callback('unknown');
+    }
+  }
+  
+  // Last attempt using geo plugin
+  function useGeoPlugin(callback) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://ssl.geoplugin.net/json.gp?k=z&jsoncallback=handleGeoIP';
+    document.getElementsByTagName('head')[0].appendChild(script);
+    
+    // Set timeout for this method
+    var geoTimeout = setTimeout(function() {
+      callback('unknown');  // Give up after 3 seconds
+    }, 3000);
+    
+    // Global callback function
+    window.handleGeoIP = function(data) {
+      clearTimeout(geoTimeout);
+      if (data && data.geoplugin_request) {
+        callback(data.geoplugin_request);
+      } else {
+        callback('unknown');
+      }
+    };
+  }
+  
+  // Create or retrieve a unique session ID
+  function getOrCreateSessionId() {
+    try {
+      var sessionId = localStorage.getItem('_vsid');
+      if (!sessionId) {
+        sessionId = 'vs_' + Math.random().toString(36).substring(2, 15) + 
+                   Math.random().toString(36).substring(2, 15);
+        localStorage.setItem('_vsid', sessionId);
+      }
+      return sessionId;
+    } catch (e) {
+      return 'vs_' + Date.now() + Math.random().toString(36).substring(2, 7);
+    }
+  }
+  
+  // Send data to Google Form using hidden iframe technique
+  function sendToGoogleForm(data) {
+    // Create a hidden iframe
+    var iframe = document.createElement('iframe');
+    iframe.name = 'hidden_form_iframe';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    
+    // Create the form element
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfgEmJ-hS8EMVcGHXsmxW0LyJsl9WEbNKFkebuKXIpsanNd9Q/formResponse';
+    form.target = 'hidden_form_iframe';
+    form.style.display = 'none';
+    
+    // Add all data fields to the form
+    addField(form, 'entry.13047354', data.timestamp);
+    addField(form, 'entry.122166452', data.page);
+    addField(form, 'entry.750308820', data.referrer);
+    addField(form, 'entry.1754175536', data.userAgent);
+    addField(form, 'entry.1879776745', data.screenSize);
+    addField(form, 'entry.1210324880', data.language);
+    addField(form, 'entry.184010741', data.sessionId);
+    addField(form, 'entry.1399472212', data.ipAddress);
+    addField(form, 'entry.1287774854', data.cookies);
+    
+    // Add form to document and submit
+    document.body.appendChild(form);
+    
+    // Submit form
+    form.submit();
+    
+    // Clean up after a delay to ensure submission completes
+    setTimeout(function() {
+      document.body.removeChild(form);
+      document.body.removeChild(iframe);
+    }, 5000);
+  }
+  
+  function addField(form, name, value) {
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = name;
+    input.value = value || '';
+    form.appendChild(input);
+  }
+</script>
     <!-- Add Fancybox CSS and JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
