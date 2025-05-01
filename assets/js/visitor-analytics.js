@@ -1,153 +1,87 @@
-const { Octokit } = require("@octokit/rest");
-
-exports.handler = async (event, context) => {
-  // Only allow POST requests
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
-
-  try {
-    // Parse the incoming data
-    const data = JSON.parse(event.body);
-    
-    // Add the IP address (Netlify provides this in headers)
-    const ip = event.headers["x-forwarded-for"] || "unknown";
-    data.ip = anonymizeIP(ip); // Anonymize for privacy
-    
-    // Format the log entry
-    const logEntry = `${new Date().toISOString()} | ${data.ip} | ${data.userAgent} | ${data.pageUrl} | ${data.referrer}\n`;
-    
-    // GitHub repository configuration - set these in Netlify environment variables
-    const githubToken = process.env.GITHUB_TOKEN;
-    const repo = process.env.GITHUB_REPO || "visitor-logs";
-    const owner = process.env.GITHUB_OWNER; // Your GitHub username
-    const logFile = `logs/${getDateString()}.log`;
-
-    if (githubToken && owner) {
-      // Log to GitHub
-      await logToGitHub(githubToken, owner, repo, logFile, logEntry, data);
-    }
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: "Visitor data logged" })
-    };
-  } catch (error) {
-    console.error("Error logging visitor:", error);
-    
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ message: "Error logging data" })
-    };
-  }
-};
-
 /**
- * Log data to a GitHub repository
+ * Simple Visitor Analytics for Ranjan's Portfolio
+ * This script collects basic visitor information and sends it to Google Sheets
  */
-async function logToGitHub(token, owner, repo, path, logEntry, fullData) {
-  const octokit = new Octokit({
-    auth: token
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait a moment to collect data
+    setTimeout(function() {
+      collectAndSendVisitorData();
+    }, 2000);
   });
-
-  try {
-    // Check if the file already exists
-    let sha;
-    let existingContent = "";
+  
+  /**
+   * Collect visitor data and send to Google Sheets
+   */
+  function collectAndSendVisitorData() {
+    // Collect basic visitor information
+    const visitorData = {
+      timestamp: new Date().toISOString(),
+      page: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      userAgent: navigator.userAgent,
+      screenSize: `${window.screen.width}x${window.screen.height}`,
+      language: navigator.language,
+      sessionId: getOrCreateSessionId()
+    };
+  
+    // Send data to Google Sheets via a form submission
+    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfgEmJ-hS8EMVcGHXsmxW0LyJsl9WEbNKFkebuKXIpsanNd9Q/viewform?usp=header"; // Replace with your Google Form URL
     
-    try {
-      const { data } = await octokit.repos.getContent({
-        owner,
-        repo,
-        path
-      });
-      
-      sha = data.sha;
-      existingContent = Buffer.from(data.content, 'base64').toString();
-    } catch (error) {
-      // File doesn't exist yet, which is fine
+    // Create form data
+    const formData = new FormData();
+    formData.append('entry.13047354', visitorData.timestamp); // Replace with your actual form field IDs
+    formData.append('entry.122166452', visitorData.page);
+    formData.append('entry.750308820', visitorData.referrer);
+    formData.append('entry.1754175536', visitorData.userAgent);
+    formData.append('entry.1879776745', visitorData.screenSize);
+    formData.append('entry.1210324880', visitorData.language);
+    formData.append('entry.184010741', visitorData.sessionId);
+  
+    // Send data using the Navigator.sendBeacon API for reliability
+    // This ensures data is sent even if the page is being closed
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(formUrl, formData);
+    } else {
+      // Fallback to fetch if sendBeacon is not available
+      fetch(formUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      }).catch(error => console.log('Logging completed'));
     }
     
-    // Prepare the new content (append to existing or create new)
-    const newContent = existingContent + logEntry;
+    // Also track navigation within the site
+    trackPageNavigation();
+  }
+  
+  /**
+   * Generate or retrieve a session ID to track the same visitor across pages
+   */
+  function getOrCreateSessionId() {
+    let sessionId = localStorage.getItem('rr_session_id');
     
-    // Prepare the JSON data log (stored in a separate file)
-    const jsonLogFile = path.replace('.log', '.json');
-    let jsonLogs = [];
-    
-    try {
-      const { data } = await octokit.repos.getContent({
-        owner,
-        repo,
-        path: jsonLogFile
-      });
-      
-      jsonLogs = JSON.parse(Buffer.from(data.content, 'base64').toString());
-    } catch (error) {
-      // JSON file doesn't exist yet, which is fine
+    if (!sessionId) {
+      sessionId = 'ss_' + Math.random().toString(36).substring(2, 15);
+      localStorage.setItem('rr_session_id', sessionId);
     }
     
-    // Add the new log entry to the JSON array
-    jsonLogs.push(fullData);
-    
-    // Update or create the text log file
-    await octokit.repos.createOrUpdateFileContents({
-      owner,
-      repo,
-      path,
-      message: `Update visitor log for ${getDateString()}`,
-      content: Buffer.from(newContent).toString('base64'),
-      sha: sha,
-      committer: {
-        name: "Visitor Logger",
-        email: "noreply@example.com"
-      }
+    return sessionId;
+  }
+  
+  /**
+   * Track navigation to different sections of the page
+   */
+  function trackPageNavigation() {
+    // Track clicks on navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const sectionId = this.getAttribute('href').substring(1);
+        
+        if (sectionId) {
+          // Log the section navigation (optional)
+          console.log(`Navigation to section: ${sectionId}`);
+        }
+      });
     });
-    
-    // Update or create the JSON log file
-    await octokit.repos.createOrUpdateFileContents({
-      owner,
-      repo,
-      path: jsonLogFile,
-      message: `Update visitor data for ${getDateString()}`,
-      content: Buffer.from(JSON.stringify(jsonLogs, null, 2)).toString('base64'),
-      sha: jsonLogs.length > 0 ? jsonLogFileSha : undefined,
-      committer: {
-        name: "Visitor Logger",
-        email: "noreply@example.com"
-      }
-    });
-    
-  } catch (error) {
-    console.error("GitHub logging error:", error);
   }
-}
-
-/**
- * Get the current date in YYYY-MM-DD format for log filenames
- */
-function getDateString() {
-  const date = new Date();
-  return date.toISOString().split('T')[0];
-}
-
-/**
- * Anonymize IP address by removing the last octet
- */
-function anonymizeIP(ip) {
-  if (!ip || ip === "unknown") return "unknown";
-  
-  // For IPv4, replace the last octet with 0
-  if (ip.includes('.')) {
-    const parts = ip.split('.');
-    parts[parts.length - 1] = '0';
-    return parts.join('.');
-  }
-  
-  // For IPv6, replace the last 80 bits (last 20 hex chars)
-  if (ip.includes(':')) {
-    return ip.replace(/:[0-9a-f]{1,4}(:[0-9a-f]{1,4}){4}$/i, ':0000:0000:0000:0000:0000');
-  }
-  
-  return "unknown";
-}
