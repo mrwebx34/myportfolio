@@ -33,8 +33,8 @@ function collectAndSendVisitorData() {
 }
 
 function sendDataToGoogleSheets(visitorData) {
-    // Send data to Google Sheets via a form submission
-    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfgEmJ-hS8EMVcGHXsmxW0LyJsl9WEbNKFkebuKXIpsanNd9Q/viewform?usp=header"; // Replace with your Google Form URL
+    // Correct Google Form submission URL
+    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfgEmJ-hS8EMVcGHXsmxW0LyJsl9WEbNKFkebuKXIpsanNd9Q/formResponse"; // Use this URL for form submission
 
     const formData = new FormData();
     formData.append('entry.13047354', visitorData.timestamp); // Replace with your actual form field IDs
