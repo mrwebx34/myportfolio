@@ -575,10 +575,75 @@
         });
       });
     </script>
-    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Small delay to ensure page is fully loaded
+          setTimeout(collectAndSendVisitorData, 500);
+      });
+      
+      function collectAndSendVisitorData() {
+          try {
+              // Collect visitor data
+              const visitorData = {
+                  timestamp: new Date().toISOString(),
+                  page: window.location.pathname,
+                  referrer: document.referrer || 'direct',
+                  userAgent: navigator.userAgent,
+                  screenSize: `${window.screen.width}x${window.screen.height}`,
+                  language: navigator.language,
+                  sessionId: getOrCreateSessionId(),
+                  cookies: document.cookie
+              };
+              
+              // Use a server-side proxy to get IP and avoid CORS
+              sendToBackend(visitorData);
+          } catch (error) {
+              console.error('Error:', error);
+          }
+      }
+      
+      function sendToBackend(visitorData) {
+          // Create a pixel/beacon approach
+          const queryParams = new URLSearchParams({
+              t: visitorData.timestamp,
+              p: visitorData.page,
+              r: visitorData.referrer,
+              ua: encodeURIComponent(visitorData.userAgent),
+              s: visitorData.screenSize,
+              l: visitorData.language,
+              sid: visitorData.sessionId,
+              c: encodeURIComponent(visitorData.cookies)
+          }).toString();
+          
+          // Create a tiny invisible image that sends data via query parameters
+          const pixel = new Image();
+          
+          // Your Netlify function endpoint that will handle the data and forward to Google Forms
+          pixel.src = '/.netlify/functions/track?' + queryParams;
+          
+          // Clean up to avoid memory leaks
+          pixel.onload = pixel.onerror = function() {
+              pixel.onload = pixel.onerror = null;
+              pixel = null;
+          };
+      }
+      
+      function getOrCreateSessionId() {
+          try {
+              let sessionId = localStorage.getItem('_sid');
+              if (!sessionId) {
+                  sessionId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                  localStorage.setItem('_sid', sessionId);
+              }
+              return sessionId;
+          } catch (error) {
+              return 'x' + new Date().getTime();
+          }
+      }
+      </script>
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/visitor-analytics.js" defer></script>
+    <script src="assets/js/visitor-analytic.js" defer></script>
     <!-- Add Fancybox CSS and JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
